@@ -1,5 +1,6 @@
 # Jupyter in WSL
 
+This script will install python (if it is not already installed), jupyter and some [packages](requirements.txt) that are usually used in simulations that use jupyter.
 
 ## Use the script
 
@@ -16,3 +17,15 @@ chmod +x jupyterWSL.sh
 ```bash
 ./jupyterWSL.sh
 ```
+
+## Author
+
+José Costa - Nova School of Science and Technology
+
+<josepirescosta2003@gmail.com>
+
+[Twitter](https://twitter.com/Jos3Costa)
+
+[GitHub](https://github.com/zepedrocosta)
+
+[LinkedIn](https://www.linkedin.com/in/jos%C3%A9-costa-595b01239/)

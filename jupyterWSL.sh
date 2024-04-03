@@ -48,5 +48,24 @@ if ! command -v jupyter &> /dev/null; then
     echo -e "${RED}Jupyter is not installed. Aborting script.${NC}"
     exit 1
 fi
+echo -e "${GREEN}Jupyter is installed!!${NC}"
+
+# Install requirements.txt if it exists
+if [ -f "requirements.txt" ]; then
+    echo -e "${GREEN}Installing packages from requirements.txt...${NC}"
+    sudo pip3 install -r requirements.txt
+
+    echo -e "${GREEN}Checking if packages were installed successfully...${NC}"
+    while IFS= read -r package
+    do
+        if ! pip3 freeze | grep -q "$package"; then
+            echo -e "${RED}$package not installed successfully.${NC}"
+            exit 1
+        fi
+    done < requirements.txt
+    echo -e "${GREEN}All packages were installed successfully!!${NC}"
+else
+    echo -e "${RED}requirements.txt file not found. Skipping installation.${NC}"
+fi
 
 echo -e "${GREEN}All required packages are installed successfully.${NC}"
